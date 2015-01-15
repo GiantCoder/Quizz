@@ -1,0 +1,45 @@
+<%- model_class = Quizz -%>
+<div class="page-header">
+  <h1>Quizzes</h1>
+<!--  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1> -->
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:author) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:question_total) %></th>
+      <th><%= model_class.human_attribute_name(:overall_rating) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @quizzs.each do |quizz| %>
+      <tr>
+        <td><%= link_to quizz.id, quizz_path(quizz) %></td>
+        <td><%= quizz.author %></td>
+        <td><%= quizz.title %></td>
+        <td><%= quizz.description %></td>
+        <td><%= quizz.question_total %></td>
+        <td><%= quizz.overall_rating %></td>
+        <td><%=l quizz.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_quizz_path(quizz), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      quizz_path(quizz),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_quizz_path,
+            :class => 'btn btn-primary' %>
