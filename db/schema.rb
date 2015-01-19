@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115175155) do
+ActiveRecord::Schema.define(version: 20150119082156) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150115175155) do
   end
 
   create_table "questions", force: true do |t|
+    t.string   "question"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "corr"
@@ -64,6 +65,8 @@ ActiveRecord::Schema.define(version: 20150115175155) do
     t.string   "ans4"
     t.text     "response"
     t.integer  "diff"
+    t.integer  "quizz_id"
+    t.boolean  "is_approved", default: false
   end
 
   create_table "quizzs", force: true do |t|

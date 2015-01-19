@@ -1,15 +1,18 @@
 class CompaniesController < InheritedResources::Base
 
 	def index
+		@companies = Company.all
 	end
 
 	def show
 	end
 
 	def new
+		@company = Company.new(company_params)
 	end
 
 	def create
+		@company = Company.new(company_params)
 	end
 
 	def destroy
