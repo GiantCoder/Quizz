@@ -23,7 +23,7 @@ Question.create!([
 	question: "Who founded Twitter?",
 	corr: "Jack Dorsey",
 	ans1:"Bob Twitt",
-	ans2:"",
+	ans2:"Lee Odden",
 	ans3:"",
 	ans4: "",
 	response: "",
@@ -451,7 +451,7 @@ Question.create!([
 },
 {
 	question: "What does PHP stand for?",
-	corr: "",
+	corr: "Personal homepage",
 	ans1:"",
 	ans2:"",
 	ans3:"",

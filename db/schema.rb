@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150119082156) do
+ActiveRecord::Schema.define(version: 20150203074751) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -67,7 +67,11 @@ ActiveRecord::Schema.define(version: 20150119082156) do
     t.integer  "diff"
     t.integer  "quizz_id"
     t.boolean  "is_approved", default: false
+    t.string   "source"
+    t.integer  "tagging_id"
   end
+
+  add_index "questions", ["tagging_id"], name: "index_questions_on_tagging_id", using: :btree
 
   create_table "quizzs", force: true do |t|
     t.string   "author"
@@ -82,10 +86,48 @@ ActiveRecord::Schema.define(version: 20150119082156) do
     t.integer  "favourites"
   end
 
-  create_table "users", force: true do |t|
+  create_table "subscribers", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscribers", ["email"], name: "index_subscribers_on_email", unique: true, using: :btree
+  add_index "subscribers", ["reset_password_token"], name: "index_subscribers_on_reset_password_token", unique: true, using: :btree
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "question_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taggings", ["question_id"], name: "index_taggings_on_question_id", using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+
+  create_table "tags", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "email"
+    t.string   "password"
+    t.boolean  "is_blocked", default: false
+    t.string   "image",      default: "/assets/images/default_photo.jpg"
   end
 
 end

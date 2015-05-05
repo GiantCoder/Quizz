@@ -9,7 +9,7 @@ ActiveAdmin.register Quizz do
   # or
   #
   permit_params do
-    permitted = [:author, :title, :description, :question_total, :overall_rating]
+    permitted = [:author, :title, :description, :question_total, :overall_rating, :runs, :completions, :favourites]
   #   permitted << :other if resource.something?
   #   permitted
   end

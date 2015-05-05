@@ -8,11 +8,11 @@ ActiveAdmin.register Question do
   #
   # or
   #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
+  permit_params do
+    permitted = [:quizz_id, :question, :corr, :ans1, :ans2, :ans3, :ans4, :response, :diff, :is_approved, :source]
   #   permitted << :other if resource.something?
   #   permitted
-  # end
+  end
 
 
 end

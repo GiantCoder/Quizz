@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  resources :questions
+
+  devise_for :subscribers
   
+  resources :questions
+
   resources :companies
 
+  resources :users
+
   resources :quizzs
+
+  get 'tags/:tag', to: 'questions#index', as: :tag
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

@@ -1,17 +1,64 @@
-<%= form_for(@question) do |f| %>
-  <% if @question.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+<%= form_for @question, :html => { :class => "form-horizontal question" } do |f| %>
 
-      <ul>
-      <% @question.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @question.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @question.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field">
+    <%= f.label "Tags (separated by commas)" %><br />
+       <%= f.text_field :tagging_id, :class => 'form-control' %>
   </div>
+
+  <div class="control-group">
+    <%= f.label :question, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :question, :class => 'form-control' %>
+    </div>
+    <%= error_span(@question[:question]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :corr, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :corr, :class => 'form-control' %>
+    </div>
+    <%= error_span(@question[:corr]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :ans1, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ans1, :class => 'form-control' %>
+    </div>
+    <%= error_span(@question[:ans1]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :ans2, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ans2, :class => 'form-control' %>
+    </div>
+    <%= error_span(@question[:ans2]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :ans3, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ans3, :class => 'form-control' %>
+    </div>
+    <%= error_span(@question[:ans3]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            questions_path, :class => 'btn btn-default' %>
+
 <% end %>
