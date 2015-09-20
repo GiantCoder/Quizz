@@ -16,8 +16,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "Tags (separated by commas)" %><br />
-       <%= f.text_field :tagging_id, :class => 'form-control' %>
+      <%= f.text_field :taggings, :class => 'form-control' %>
   </div>
 
   <div class="control-group">
@@ -28,32 +27,60 @@
     <%= error_span(@question[:question]) %>
   </div>
   <div class="control-group">
-    <%= f.label :corr, :class => 'control-label' %>
+    <%= f.label "Correct Answer", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :corr, :class => 'form-control' %>
     </div>
     <%= error_span(@question[:corr]) %>
   </div>
   <div class="control-group">
-    <%= f.label :ans1, :class => 'control-label' %>
+    <%= f.label "Answer 1", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ans1, :class => 'form-control' %>
     </div>
     <%= error_span(@question[:ans1]) %>
   </div>
   <div class="control-group">
-    <%= f.label :ans2, :class => 'control-label' %>
+    <%= f.label "Answer 2", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ans2, :class => 'form-control' %>
     </div>
     <%= error_span(@question[:ans2]) %>
   </div>
   <div class="control-group">
-    <%= f.label :ans3, :class => 'control-label' %>
+    <%= f.label "Answer 3", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :ans3, :class => 'form-control' %>
     </div>
     <%= error_span(@question[:ans3]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label "Answer 4", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ans4, :class => 'form-control' %>
+    </div>
+    <%= error_span(@question[:ans4]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label "Difficulty (1-10)", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :diff, :class => 'form-control' %>
+    </div>
+    <%= error_span(@question[:diff]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label "Source URL", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :source, :class => 'form-control' %>
+    </div>
+    <%= error_span(@question[:source]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label "Response", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :response, :class => 'form-control' %>
+    </div>
+    <%= error_span(@question[:response]) %>
   </div>
 
 

@@ -4,6 +4,7 @@ class QuizzsController < InheritedResources::Base
 
 	def index
 		@quizzs = Quizz.all
+		@questions = Question.all
 	end
 
 	def new

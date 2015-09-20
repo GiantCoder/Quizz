@@ -5,6 +5,8 @@ class Question < ActiveRecord::Base
 	has_many :tags, through: :taggings
 
 	scope :approved, -> { where(is_approved: true ) }
+	scope :today, lambda { where('DATE(created_at) = ?', Date.today) }
+	scope :recent, lambda { where('DATE(created_at) < ?', 10.days.ago) }
 
 	def self.total_on(date)
 		where("date(created_at) = ?", date).count

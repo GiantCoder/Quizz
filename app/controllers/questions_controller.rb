@@ -8,6 +8,7 @@ class QuestionsController < InheritedResources::Base
   		else
     		@questions = Question.all
 		end
+		@tags = Tag.all
 	end
 
 #  def index
@@ -17,6 +18,8 @@ class QuestionsController < InheritedResources::Base
 #  end
 
 	def show
+      @question = Question.find(params[:id])
+
 	end
 
 	def new

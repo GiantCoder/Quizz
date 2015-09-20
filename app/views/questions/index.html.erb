@@ -114,6 +114,8 @@ var themeA = {
       <th><%= model_class.human_attribute_name(:ans1) %></th>
       <th><%= model_class.human_attribute_name(:ans2) %></th>
       <th><%= model_class.human_attribute_name(:ans3) %></th>
+      <th><%= model_class.human_attribute_name(:diff) %></th>
+      <th><%= model_class.human_attribute_name(:is_approved) %></th>
       <th>Tags</th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -128,6 +130,8 @@ var themeA = {
         <td><%= question.ans1 %></td>
         <td><%= question.ans2 %></td>
         <td><%= question.ans3 %></td>
+        <td><%= question.diff %></td>
+        <td><%= question.is_approved %></td>
         <td><%= raw question.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></td>
         <td><%=l question.created_at %></td>
         <td>
