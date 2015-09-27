@@ -4,7 +4,6 @@ class QuizzsController < InheritedResources::Base
 
 	def index
 		@quizzs = Quizz.all
-		@questions = Question.all
 	end
 
 	def new
@@ -48,7 +47,8 @@ class QuizzsController < InheritedResources::Base
     end
 
     def quizz_params
-      params.require(:quizz).permit(:author, :title, :description, :question_total, :overall_rating)
+      params.require(:quizz).permit(:author, :title, :description, :question_total, { question_ids: []},
+      	:overall_rating)
     end
 end
 

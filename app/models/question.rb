@@ -1,8 +1,10 @@
 class Question < ActiveRecord::Base
 #	before_action :authenticate_member!, :except => [:index, :show]
-	belongs_to :quizz
+	has_many :quizzs, through: :quizz_questions
+	has_many :quizz_questions
 	has_many :taggings
 	has_many :tags, through: :taggings
+	belongs_to :user
 
 	scope :approved, -> { where(is_approved: true ) }
 	scope :today, lambda { where('DATE(created_at) = ?', Date.today) }

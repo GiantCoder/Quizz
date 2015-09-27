@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203074751) do
+ActiveRecord::Schema.define(version: 20150927212238) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -65,13 +65,21 @@ ActiveRecord::Schema.define(version: 20150203074751) do
     t.string   "ans4"
     t.text     "response"
     t.integer  "diff"
-    t.integer  "quizz_id"
     t.boolean  "is_approved", default: false
     t.string   "source"
     t.integer  "tagging_id"
+    t.integer  "user_id"
   end
 
   add_index "questions", ["tagging_id"], name: "index_questions_on_tagging_id", using: :btree
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
+
+  create_table "quizz_questions", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "question_id"
+    t.integer  "quizz_id"
+  end
 
   create_table "quizzs", force: true do |t|
     t.string   "author"

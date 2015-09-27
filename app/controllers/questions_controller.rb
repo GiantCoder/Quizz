@@ -41,7 +41,6 @@ class QuestionsController < InheritedResources::Base
 	        format.html { render :new }
 	        format.json { render json: @question.errors, status: :unprocessable_entity }
 	      end
-	      redirect_to '/questions'
 	    end
 	end
 
@@ -79,7 +78,8 @@ class QuestionsController < InheritedResources::Base
 
 
     def question_params
-      params.require(:question).permit(:quizz_id, :corr, :ans1, :ans2, :ans3, :ans4, :response, :diff, :is_approved, :tag_list, {taggings: []})
+      params.require(:question).permit(:question, :quizz_id, :corr, :ans1, :ans2, :ans3, :ans4, :response,
+      	:diff, :source, :is_approved, :tag_list, { taggings: [] }, { quizzs: [] } ) 
     end
 end
 

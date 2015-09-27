@@ -1,4 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<h2>#<%= @question.id %>: <%=@question.question %></h2>
+<br />
+<h3>Correct Answer:</h3>
+<h3><%= @question.corr %></h3>
+<br />
+<h4>Incorrect Answers:</h4>
+<ul>
+	<li><%= @question.ans1 %></li>
+	<li><%= @question.ans2 %></li>
+	<li><%= @question.ans3 %></li>
+	<li><%= @question.ans4 %></li>
+	<li><%= @question.ans1 %></li>
+</ul>
+<p><%= @question.response %></p>
+<p>Difficulty: <%= @question.diff %></p>
+
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
