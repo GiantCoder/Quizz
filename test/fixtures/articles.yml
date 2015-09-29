@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  url: MyString
+  fb_shares: 1
+  twitter_shares: 1
+  maj_fresh_links: 1
+  maj_fresh_urds: 1
+
+two:
+  user_id: 
+  url: MyString
+  fb_shares: 1
+  twitter_shares: 1
+  maj_fresh_links: 1
+  maj_fresh_urds: 1
