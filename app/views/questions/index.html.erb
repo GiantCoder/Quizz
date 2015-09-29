@@ -1,4 +1,4 @@
-<%= link_to 'New Question', new_question_path %>
+<%= link_to 'New Question', new_question_path, class: "btn btn-default" %>
 
 <%- model_class = Question -%>
 <script type="text/javascript" src="public/javascripts/gray.js"></script>
@@ -95,10 +95,13 @@ var themeA = {
 
 <div id="question_chart" style="width:1100px; height: 450px;"></div>
 
-<div id="tag_cloud">
+<div class="row">
+  <div id="tag_cloud">
   <% tag_cloud Question.tag_counts, %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    (<%= tag.count %>)
   <% end %>
+  </div>
 </div>
 
 <div class="page-header">
@@ -108,12 +111,14 @@ var themeA = {
 <table class="table table-striped">
   <thead>
     <tr>
+      <th><%= User %></th>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:question) %></th>
       <th><%= model_class.human_attribute_name(:corr) %></th>
       <th><%= model_class.human_attribute_name(:ans1) %></th>
       <th><%= model_class.human_attribute_name(:ans2) %></th>
       <th><%= model_class.human_attribute_name(:ans3) %></th>
+      <th><%= model_class.human_attribute_name(:ans4) %></th>
       <th><%= model_class.human_attribute_name(:diff) %></th>
       <th><%= model_class.human_attribute_name(:is_approved) %></th>
       <th>Tags</th>
@@ -130,6 +135,7 @@ var themeA = {
         <td><%= question.ans1 %></td>
         <td><%= question.ans2 %></td>
         <td><%= question.ans3 %></td>
+        <td><%= question.ans4 %></td>
         <td><%= question.diff %></td>
         <td><%= question.is_approved %></td>
         <td><%= raw question.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></td>

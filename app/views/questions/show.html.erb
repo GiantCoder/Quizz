@@ -5,13 +5,14 @@
 <h3>Correct Answer:</h3>
 <h3><%= @question.corr %></h3>
 <br />
-<h4>Incorrect Answers:</h4>
+<h4>Tags: <%= @question.tag_list %></h5>
+<br />
+<h5>Incorrect Answers:</h4>
 <ul>
 	<li><%= @question.ans1 %></li>
 	<li><%= @question.ans2 %></li>
 	<li><%= @question.ans3 %></li>
 	<li><%= @question.ans4 %></li>
-	<li><%= @question.ans1 %></li>
 </ul>
 <p><%= @question.response %></p>
 <p>Difficulty: <%= @question.diff %></p>
