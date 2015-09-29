@@ -34,7 +34,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 #For consuming external APIs
 gem 'httparty', '~> 0.13.7'
+#For Facebook Graph data
+gem 'koala', '~> 2.2.0'
 #For scraping
+gem 'mechanize', '~> 2.7.3'
+# gem 'nokogiri', '~> 1.6.6.2'
+#For Cron jobs
+gem 'whenever', '~> 0.9.4'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 # Better errors: https://github.com/charliesome/better_errors
