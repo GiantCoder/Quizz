@@ -1,0 +1,23 @@
+<%= simple_form_for @brand, html: { multipart: true } do |form| %>
+    <%= form.label :name %><br />
+	<%= form.text_field :name %><br />
+
+    <%= form.label "Select the brand logo" %><br />
+	<%= form.input :logo, as: :file %></br />
+    <%= form.label :website %><br />
+	<%= form.text_field :website %></br />
+    <%= form.label :facebook_url %><br />
+	<%= form.text_field :facebook_url %></br />
+    <%= form.label :twitter_url %><br />
+	<%= form.text_field :twitter_url %></br />
+    <%= form.label :youtube_url %><br />
+	<%= form.text_field :youtube_url %></br />
+    <%= form.label :pinterest_url %><br />
+	<%= form.text_field :pinterest_url %></br />
+    <%= form.label :instagram_url %><br />
+	<%= form.text_field :instagram_url %></br />
+    <%= form.label :linkedin_url %><br />
+	<%= form.text_field :linkedin_url %><br />
+<br/ >
+	<%= form.submit %>
+<% end %>
