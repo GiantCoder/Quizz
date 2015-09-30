@@ -1,19 +1,58 @@
 class BrandsController < ApplicationController
+  before_action :find_brand, only: [:show, :edit, :update, :destroy]
+
   def index
+    @brands = Brand.all
   end
 
   def new
+    @brand = Brand.new
   end
 
   def create
+    @brand = Brand.new(brand_params)
+
+      respond_to do |format|
+        if @brand.save
+          format.html { redirect_to @brand, notice: 'brand was successfully created.' }
+          format.json { render :show, status: :created, location: @brand }
+            format.js
+        else
+          format.html { render :new }
+          format.json { render json: @brand.errors, status: :unprocessable_entity }
+        end
+    end
   end
 
-  def edit
+  def show
   end
 
   def update
+    respond_to do |format|
+      if @brand.update(brand_params)
+        format.html { redirect_to @brand, notice: 'brand was successfully updated.' }
+        format.json { render :show, status: :ok, location: @brand }
+      else
+        format.html { render :edit }
+        format.json { render json: @brand.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
+    @brand.destroy
+        format.html { redirect_to brands_url, notice: 'brand was successfully destroyed.' }
+        format.json { head :no_content }
   end
+
+  private
+
+  def find_brand
+    @brand = Brand.find(params[:id])
+  end
+
+    def brand_params
+      params.require(:brand).permit(:title, :url, :fb_shares, :twitter_shares, :maj_fresh_links, :maj_fresh_urds)
+    end
 end
+

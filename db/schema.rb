@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930103805) do
+ActiveRecord::Schema.define(version: 20150930123209) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -159,6 +159,17 @@ ActiveRecord::Schema.define(version: 20150930103805) do
     t.integer  "completions"
     t.integer  "favourites"
   end
+
+  create_table "reading_lists", force: true do |t|
+    t.string   "name"
+    t.integer  "article_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reading_lists", ["article_id"], name: "index_reading_lists_on_article_id", using: :btree
+  add_index "reading_lists", ["user_id"], name: "index_reading_lists_on_user_id", using: :btree
 
   create_table "subscribers", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,52 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'readinglists/index'
+  resources :readinglists
 
-  get 'readinglists/new'
+  resources :brands
 
-  get 'readinglists/create'
+  resources :metrics
 
-  get 'readinglists/edit'
-
-  get 'readinglists/update'
-
-  get 'readinglists/destroy'
-
-  get 'brands/index'
-
-  get 'brands/new'
-
-  get 'brands/create'
-
-  get 'brands/edit'
-
-  get 'brands/update'
-
-  get 'brands/destroy'
-
-  get 'metrics/index'
-
-  get 'metrics/new'
-
-  get 'metrics/create'
-
-  get 'metrics/edit'
-
-  get 'metrics/update'
-
-  get 'metrics/destroy'
-
-  get 'categories/index'
-
-  get 'categories/new'
-
-  get 'categories/create'
-
-  get 'categories/edit'
-
-  get 'categories/update'
-
-  get 'categories/destroy'
+  resources :categories
 
   resources :articles
 
