@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'brands/index'
+
+  get 'brands/new'
+
+  get 'brands/create'
+
+  get 'brands/edit'
+
+  get 'brands/update'
+
+  get 'brands/destroy'
+
   get 'metrics/index'
 
   get 'metrics/new'
