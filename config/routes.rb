@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'readinglists/index'
+
+  get 'readinglists/new'
+
+  get 'readinglists/create'
+
+  get 'readinglists/edit'
+
+  get 'readinglists/update'
+
+  get 'readinglists/destroy'
+
   get 'brands/index'
 
   get 'brands/new'
