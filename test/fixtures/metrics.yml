@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2015-09-30
+  tweets: 1
+  followers: 1
+  following: 1
+  fb_likes: 1
+  fb_talking: 1
+  fb_shares: 1
+  yt_subs: 1
+  yt_views: 1
+  brand_id: 
+
+two:
+  date: 2015-09-30
+  tweets: 1
+  followers: 1
+  following: 1
+  fb_likes: 1
+  fb_talking: 1
+  fb_shares: 1
+  yt_subs: 1
+  yt_views: 1
+  brand_id: 

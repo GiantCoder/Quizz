@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'metrics/index'
+
+  get 'metrics/new'
+
+  get 'metrics/create'
+
+  get 'metrics/edit'
+
+  get 'metrics/update'
+
+  get 'metrics/destroy'
+
   get 'categories/index'
 
   get 'categories/new'
