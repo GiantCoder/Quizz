@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929145206) do
+ActiveRecord::Schema.define(version: 20150929205133) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20150929145206) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "articlemetrics", force: true do |t|
+    t.integer  "article_id"
+    t.integer  "dailytweet"
+    t.integer  "dailyfollowing"
+    t.integer  "dailyfollowers"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "articlemetrics", ["article_id"], name: "index_articlemetrics_on_article_id", using: :btree
+
   create_table "articles", force: true do |t|
     t.integer  "user_id"
     t.string   "url"
@@ -55,6 +66,7 @@ ActiveRecord::Schema.define(version: 20150929145206) do
     t.integer  "maj_fresh_urds"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree

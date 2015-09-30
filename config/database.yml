@@ -18,6 +18,16 @@ default: &default
   password: gingerquiz
   socket: /tmp/mysql.sock
 
+production:
+  adapter: postgresql
+  host: localhost
+  encoding: utf8
+  port: 5432
+  database: quiz_production
+  username: quiz
+  password: quiz
+  #<%= ENV['QUIZ_DATABASE_PASSWORD'] %>
+
 development:
   <<: *default
   database: quiz_development
@@ -48,8 +58,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: quiz_production
-  username: quiz
-  password: <%= ENV['QUIZ_DATABASE_PASSWORD'] %>

@@ -18,8 +18,6 @@ class QuestionsController < InheritedResources::Base
 #  end
 
 	def show
-      @question = Question.find(params[:id])
-
 	end
 
 	def new
@@ -63,10 +61,6 @@ class QuestionsController < InheritedResources::Base
 	      format.json { head :no_content }
 	    end
 	  end
-
-	def delete
-	end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.

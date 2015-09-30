@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
-
+# Use mysql as the database for Active Record
+  gem 'mysql2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
-# Use mysql as the database for Active Record
-gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -15,8 +14,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 # Use devise for authentication
-gem 'devise'
-
+gem 'devise', :git => "https://github.com/plataformatec/devise.git"
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
@@ -34,22 +32,34 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 #For consuming external APIs
 gem 'httparty', '~> 0.13.7'
+#For OAuth
+gem 'omniauth', '~> 1.2.2'
+gem 'omniauth-oauth2', '~> 1.3.1'
+gem 'omniauth-facebook', '~> 2.0.1'
+gem 'omniauth-twitter', '~> 1.2.1'
+
 #For Facebook Graph data
 gem 'koala', '~> 2.2.0'
-#For scraping
+#For crawling
 gem 'mechanize', '~> 2.7.3'
-# gem 'nokogiri', '~> 1.6.6.2'
+#For scraping
+gem 'nokogiri', '~> 1.6.6.2'
 #For Cron jobs
 gem 'whenever', '~> 0.9.4'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 # Better errors: https://github.com/charliesome/better_errors
-group :development do
+group :development, :test do
+
   gem "better_errors"
   gem 'binding_of_caller'
   gem 'spring'
 end
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

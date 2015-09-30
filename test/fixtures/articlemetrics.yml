@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  article_id: 
+  dailytweet: 1
+  dailyfollowing: 1
+  dailyfollowers: 1
+
+two:
+  article_id: 
+  dailytweet: 1
+  dailyfollowing: 1
+  dailyfollowers: 1
