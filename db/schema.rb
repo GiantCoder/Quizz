@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930091630) do
+ActiveRecord::Schema.define(version: 20150930102837) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -69,6 +69,30 @@ ActiveRecord::Schema.define(version: 20150930091630) do
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
+
+  create_table "brands", force: true do |t|
+    t.string   "name"
+    t.string   "website"
+    t.string   "facebook_url"
+    t.string   "twitter_url"
+    t.string   "youtube_url"
+    t.string   "pinterest_url"
+    t.string   "instagram_url"
+    t.string   "linkedin_url"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "brands", ["category_id"], name: "index_brands_on_category_id", using: :btree
+  add_index "brands", ["user_id"], name: "index_brands_on_user_id", using: :btree
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "companies", force: true do |t|
     t.string   "name"
