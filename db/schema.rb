@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930102837) do
+ActiveRecord::Schema.define(version: 20150930103805) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20150930102837) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "logo"
   end
 
   add_index "brands", ["category_id"], name: "index_brands_on_category_id", using: :btree
@@ -101,6 +102,23 @@ ActiveRecord::Schema.define(version: 20150930102837) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "metrics", force: true do |t|
+    t.date     "date"
+    t.integer  "tweets"
+    t.integer  "followers"
+    t.integer  "following"
+    t.integer  "fb_likes"
+    t.integer  "fb_talking"
+    t.integer  "fb_shares"
+    t.integer  "yt_subs"
+    t.integer  "yt_views"
+    t.integer  "brand_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "metrics", ["brand_id"], name: "index_metrics_on_brand_id", using: :btree
 
   create_table "questions", force: true do |t|
     t.string   "question"
