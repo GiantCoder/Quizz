@@ -5,7 +5,7 @@
     <% @brands.each do |brand| %>
       <tr>
         <td><%= link_to brand.id, brand_path(brand) %></td>
-        <td><%= image_tag brand.logo %></td>
+        <td><%= image_tag brand.logo(:thumb) %></td>
         <td><%= brand.name %></td>
         <td><%= brand.website %></td>
         <td>@<%= link_to brand.twitter_url, "https://twitter.com/#{brand.twitter_url}" %></td>

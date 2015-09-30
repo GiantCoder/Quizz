@@ -1,5 +1,6 @@
 class MetricsController < ApplicationController
   def index
+    @metrics = Metric.all
   end
 
   def new

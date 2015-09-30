@@ -18,9 +18,12 @@ gem 'devise', :git => "https://github.com/plataformatec/devise.git"
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+#For handling image uploads
+gem 'paperclip', '~> 4.3.1'
 
 gem 'activeadmin',         github: 'gregbell/active_admin'
 gem 'inherited_resources', github: 'josevalim/inherited_resources'
+gem 'simple_form', '~> 3.2.0'
 gem 'formtastic',          github: 'justinfrench/formtastic'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

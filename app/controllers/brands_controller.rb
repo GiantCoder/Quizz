@@ -14,7 +14,7 @@ class BrandsController < ApplicationController
 
       respond_to do |format|
         if @brand.save
-          format.html { redirect_to @brand, notice: 'brand was successfully created.' }
+          format.html { redirect_to @brand, notice: 'Brand was successfully created.' }
           format.json { render :show, status: :created, location: @brand }
             format.js
         else
@@ -27,10 +27,13 @@ class BrandsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
   def update
     respond_to do |format|
       if @brand.update(brand_params)
-        format.html { redirect_to @brand, notice: 'brand was successfully updated.' }
+        format.html { redirect_to brand_path, notice: 'Brand was successfully updated.' }
         format.json { render :show, status: :ok, location: @brand }
       else
         format.html { render :edit }
@@ -52,7 +55,8 @@ class BrandsController < ApplicationController
   end
 
     def brand_params
-      params.require(:brand).permit(:title, :url, :fb_shares, :twitter_shares, :maj_fresh_links, :maj_fresh_urds)
+      params.require(:brand).permit(:name, :website, :facebook_url, :twitter_url, :youtube_url, :pinterest_url,
+       :instagram_url, :linkedin_url, :logo, :logo_file_name)
     end
 end
 

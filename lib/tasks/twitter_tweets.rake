@@ -4,13 +4,13 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 
-@articles = Article.all
+@brands = Brand.all
 
-@articles.each do |article|
-	url = "https://twitter.com/#{CGI.escape(article.url)}"
+@brands.each do |brand|
+	url = "https://twitter.com/#{CGI.escape(brand.url)}"
 	doc = Nokogiri::HTML(open(url))
 	tweets = doc.at_css('.ProfileNav-value').text.delete(',').to_i
-	@metric = Articlemetric.create(dailytweet: tweets)
-	article.articlemetrics << @metric
+	@metric = Metric.create(tweets: tweets)
+	Brand.metrics << @metric
 	end
 end

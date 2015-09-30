@@ -1,2 +1,27 @@
-<h1>Metrics#index</h1>
-<p>Find me in app/views/metrics/index.html.erb</p>
+<h1>Tracked metrics</h1>
+
+<table class="table table-striped">
+  <tbody>
+    <% @metrics.each do |metric| %>
+      <tr>
+        <td><%= link_to metric.id, metric_path(metric) %></td>
+<!--    <td><%= image_tag metric.logo(:thumb) %></td> -->
+        <td><%= metric.tweets %></td>
+        <td><%= time_ago_in_words(metric.created_at) %> ago</td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_metric_path(metric), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      metric_path(metric),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want to delete this metric?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New metric', new_metric_path %>
