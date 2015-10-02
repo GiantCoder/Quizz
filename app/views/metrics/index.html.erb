@@ -1,13 +1,28 @@
+<%= render 'header' %>
+
 <h1>Tracked metrics</h1>
 
 <table class="table table-striped">
   <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Brand</th>
+      <th>Date</th>
+      <th>Tweets</th>
+      <th>Following</th>
+      <th>Followers</th>
+      <th>Updated</th>
+      <th></th>
+    <tr>
     <% @metrics.each do |metric| %>
       <tr>
         <td><%= link_to metric.id, metric_path(metric) %></td>
-<!--    <td><%= image_tag metric.logo(:thumb) %></td> -->
+        <td><%= metric.brand.name %></td>
+        <td><%= metric.date.to_formatted_s(:rfc822) %></td>
         <td><%= metric.tweets %></td>
-        <td><%= time_ago_in_words(metric.created_at) %> ago</td>
+        <td><%= metric.following %></td>
+        <td><%= metric.followers %></td>
+        <td><%= time_ago_in_words(metric.updated_at) %> ago</td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_metric_path(metric), :class => 'btn btn-default btn-xs' %>

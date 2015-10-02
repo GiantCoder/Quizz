@@ -1,16 +1,64 @@
-<h1>Tracked Brands</h1>
+<div class="container">
+  <div class="row">
+  <strong>TRACKED BRANDS</strong>
+  </div>
+</div>
 
 <table class="table table-striped">
   <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Logo</th>
+      <th>Brand</th>
+      <th>Sport</th>
+      <th>League</th>
+      <th>Country</th>
+      <th>Stadium</th>
+      <th>Capacity</th>
+      <th>Social Media</th>
+      <th>Updated</th>
+      <th>Edit/Del</th>
+    </tr>
     <% @brands.each do |brand| %>
       <tr>
         <td><%= link_to brand.id, brand_path(brand) %></td>
         <td><%= image_tag brand.logo(:thumb) %></td>
         <td><%= brand.name %></td>
-        <td><%= brand.website %></td>
-        <td>@<%= link_to brand.twitter_url, "https://twitter.com/#{brand.twitter_url}" %></td>
-        <td><%= brand.facebook_url %></td>
-        <td><%= brand.youtube_url %></td>
+<!--    <td><%= brand.hex %></td> -->
+        <td><%= brand.sport %></td>
+        <td><%= brand.league[0,4] %></td>
+        <% if brand.country == "ENG" %>
+            <td><%= image_tag "flags/eng.png" %></td>
+        <% else %>
+            <td><%= brand.country %></td>
+        <% end %>
+        <td><%= brand.stadium%></td>
+        <td><%= brand.stadium_capacity %></td>
+        <td><% if brand.facebook_url? %>
+                  <%= link_to (image_tag "facebooklogo.png"), brand.facebook_url %>
+              <% end %>
+              <% if brand.twitter_url? %>
+                  <%= link_to (image_tag "twitterlogo.png"), "https://twitter.com/#{brand.twitter_url}" %>
+              <% end %>
+              <% if brand.youtube_url? %>
+                  <%= link_to (image_tag "youtubelogo.png"), brand.youtube_url %>
+              <% end %>
+              <% if brand.google_plus? %>
+                  <%= link_to (image_tag "googlepluslogo.png"), brand.google_plus %>
+              <% end %>
+              <% if brand.flickr_url? %>
+                  <%= link_to (image_tag "flickrlogo.png"), brand.flickr_url %>
+              <% end %>
+              <% if brand.instagram_url? %>
+                  <%= link_to (image_tag "instagramlogo.png"), brand.instagram_url %>
+              <% end %>
+              <% if brand.pinterest_url? %>
+                  <%= link_to (image_tag "pinterestlogo.png"), brand.pinterest_url %>
+              <% end %>
+              <% if brand.wikipedia_url? %>
+                  <%= link_to (image_tag "wikipedialogo.png"), brand.wikipedia_url %>
+              <% end %>              
+        </td>
         <td><%= time_ago_in_words(brand.created_at) %> ago</td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
