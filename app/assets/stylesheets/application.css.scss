@@ -14,7 +14,8 @@
  *= require_self
  */
  
-@import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500); 
+@import url(https://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500); 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import "animate";
 
 /* Variables, mixins, etc.. */
@@ -112,11 +113,11 @@
 
 body {
 	background-color: #f5f5f5;
-	font-family: 'Lora', serif;
+	font-family: 'Open Sans', 'Lora', serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Open Sans', Ubuntu', sans-serif;
 	font-weight: 300;
 }
 
@@ -128,7 +129,7 @@ p.alert, p.notice {
 /* Navbar/navigation styles */
 
 .navbar {
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Open Sans', Ubuntu', sans-serif;
 	text-transform: uppercase;
 }
 .navbar-default {
