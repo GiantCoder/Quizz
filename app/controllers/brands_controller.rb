@@ -3,6 +3,10 @@ class BrandsController < ApplicationController
 
   def index
     @brands = Brand.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data text: @brands.to_csv2, filename: "brands-#{Date.today}.csv" }
+    end
   end
 
   def new
