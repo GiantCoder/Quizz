@@ -57,7 +57,7 @@ class BrandsController < ApplicationController
   def brand_params
     params.require(:brand).permit(:name, :website, :facebook_url, :twitter_url, :youtube_url,
       :pinterest_url, :instagram_url, :flickr_url, :google_plus, :linkedin_url, :logo, :logo_file_name,
-      :stadium, :stadium_capacity, :wikipedia_url, :hex)
+      :stadium, :stadium_capacity, :wikipedia_url, :hex1, :hex2, :hex3)
   end
 
 end

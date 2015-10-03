@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930222149) do
+ActiveRecord::Schema.define(version: 20151003021444) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20150930222149) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
-    t.string   "hex"
+    t.string   "hex1"
     t.string   "sport"
     t.string   "league"
     t.string   "country",           limit: 3
@@ -99,6 +99,9 @@ ActiveRecord::Schema.define(version: 20150930222149) do
     t.string   "wikipedia_url"
     t.string   "stadium"
     t.integer  "stadium_capacity"
+    t.string   "hex2"
+    t.string   "hex3"
+    t.string   "tumblr_url"
   end
 
   add_index "brands", ["category_id"], name: "index_brands_on_category_id", using: :btree

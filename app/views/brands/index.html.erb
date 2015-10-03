@@ -24,13 +24,12 @@
         <td><%= link_to brand.id, brand_path(brand) %></td>
         <td><%= image_tag brand.logo(:thumb) %></td>
         <td><%= brand.name %></td>
-<!--    <td><%= brand.hex %></td> -->
         <td><%= brand.sport %></td>
         <td><%= brand.league[0,4] %></td>
-        <% if brand.country == "ENG" %>
-            <td><%= image_tag "flags/eng.png" %></td>
+        <% if brand.country == "SCO" %>
+            <td><%= image_tag "flags/sco.png" %></td>
         <% else %>
-            <td><%= brand.country %></td>
+          <td><%= image_tag "flags/#{brand.country}.png" %></td>
         <% end %>
         <td><%= brand.stadium%></td>
         <td><%= brand.stadium_capacity %></td>
@@ -38,7 +37,7 @@
                   <%= link_to (image_tag "facebooklogo.png"), brand.facebook_url %>
               <% end %>
               <% if brand.twitter_url? %>
-                  <%= link_to (image_tag "twitterlogo.png"), "https://twitter.com/#{brand.twitter_url}" %>
+                  <%= link_to (image_tag "twitterlogo.png"), brand.twitter_url %>
               <% end %>
               <% if brand.youtube_url? %>
                   <%= link_to (image_tag "youtubelogo.png"), brand.youtube_url %>
@@ -55,9 +54,12 @@
               <% if brand.pinterest_url? %>
                   <%= link_to (image_tag "pinterestlogo.png"), brand.pinterest_url %>
               <% end %>
+              <% if brand.linkedin_url? %>
+                  <%= link_to (image_tag "linkedinlogo.png"), brand.linkedin_url %>
+              <% end %>               
               <% if brand.wikipedia_url? %>
                   <%= link_to (image_tag "wikipedialogo.png"), brand.wikipedia_url %>
-              <% end %>              
+              <% end %>
         </td>
         <td><%= time_ago_in_words(brand.created_at) %> ago</td>
         <td>
